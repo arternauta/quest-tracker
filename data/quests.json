@@ -1,0 +1,120 @@
+{
+  "hero": {
+    "name": "Arternauta",
+    "title": "Full Stack Adventurer",
+    "totalXP": 3200,
+    "level": 7
+  },
+  "quests": [
+    {
+      "id": "scrappy-doh",
+      "name": "Scrappy Doh",
+      "subtitle": "Instagram Comment Scraper",
+      "category": "code",
+      "status": "active",
+      "hearts": 4,
+      "maxHearts": 5,
+      "level": 3,
+      "xp": 1200,
+      "rupees": 4,
+      "triforce": {
+        "power": 3,
+        "wisdom": 3,
+        "courage": 3
+      },
+      "description": "Scraper de comentarios de Instagram con análisis de sentimiento.",
+      "nextStep": "Exportar reportes en PDF",
+      "lastUpdated": "2026-05-29",
+      "gitRepo": "/Users/arternauta/01_ PROYECTOS/EL JOINT/Comment Scrapper",
+      "tags": ["python", "instagram", "el-joint"]
+    },
+    {
+      "id": "sparrow",
+      "name": "Sparrow",
+      "subtitle": "Meta DM Approval App",
+      "category": "code",
+      "status": "active",
+      "hearts": 5,
+      "maxHearts": 5,
+      "level": 2,
+      "xp": 800,
+      "rupees": 5,
+      "triforce": {
+        "power": 3,
+        "wisdom": 2,
+        "courage": 3
+      },
+      "description": "App para aprobación de DMs de Meta. React + TypeScript + Dexie, sin backend.",
+      "nextStep": "Completar V1 Compass",
+      "lastUpdated": "2026-05-29",
+      "gitRepo": null,
+      "tags": ["react", "typescript", "meta", "el-joint"]
+    },
+    {
+      "id": "quest-tracker",
+      "name": "Quest Tracker",
+      "subtitle": "Project RPG Dashboard",
+      "category": "code",
+      "status": "active",
+      "hearts": 5,
+      "maxHearts": 5,
+      "level": 1,
+      "xp": 100,
+      "rupees": 3,
+      "triforce": {
+        "power": 2,
+        "wisdom": 3,
+        "courage": 3
+      },
+      "description": "App pixel art estilo Zelda NES para trackear proyectos con stats de videojuego.",
+      "nextStep": "Aprobar UI y cargar datos reales",
+      "lastUpdated": "2026-05-29",
+      "gitRepo": null,
+      "tags": ["html", "css", "js", "personal"]
+    },
+    {
+      "id": "presentaciones-js",
+      "name": "Presentaciones JS",
+      "subtitle": "Cool Slides with HTML/JS",
+      "category": "code",
+      "status": "backlog",
+      "hearts": 4,
+      "maxHearts": 5,
+      "level": 1,
+      "xp": 0,
+      "rupees": 3,
+      "triforce": {
+        "power": 2,
+        "wisdom": 1,
+        "courage": 1
+      },
+      "description": "Herramienta de presentaciones interactivas con librerías JS. Pendiente para junio 2026.",
+      "nextStep": "Definir brief y elegir librería (Reveal.js, Impress.js, GSAP)",
+      "lastUpdated": "2026-05-29",
+      "gitRepo": null,
+      "tags": ["html", "js", "personal"]
+    },
+    {
+      "id": "el-joint-ops",
+      "name": "El Joint Ops",
+      "subtitle": "Gestión de clientes y campañas",
+      "category": "work",
+      "status": "active",
+      "hearts": 3,
+      "maxHearts": 5,
+      "level": 4,
+      "xp": 1100,
+      "rupees": 5,
+      "triforce": {
+        "power": 3,
+        "wisdom": 3,
+        "courage": 2
+      },
+      "description": "Operación general de la agencia: clientes, campañas, entregas.",
+      "nextStep": "—",
+      "lastUpdated": "2026-05-29",
+      "gitRepo": null,
+      "tags": ["el-joint", "agencia", "trabajo"]
+    }
+  ]
+}

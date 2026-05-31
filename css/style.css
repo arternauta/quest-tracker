@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --black:    #000000;
+  --navy:     #0000bc;
+  --green:    #00a800;
+  --gold:     #f8b800;
+  --red:      #d82800;
+  --blue:     #3cbcfc;
+  --white:    #fcfcfc;
+  --brown:    #ac7c00;
+  --orange:   #fc7460;
+  --darkbg:   #0a0a1a;
+  --cardbg:   #12122a;
+  --border:   #3c3c6e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+}
+
+body {
+  background-color: var(--darkbg);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(60,60,110,0.08) 31px,
+      rgba(60,60,110,0.08) 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 31px,
+      rgba(60,60,110,0.08) 31px,
+      rgba(60,60,110,0.08) 32px
+    );
+  color: var(--white);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* ── LINK SPRITE ── */
+.hero-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-left .hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.link-sprite {
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── HEADER ── */
+.hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid var(--gold);
+  background: var(--cardbg);
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  box-shadow: 4px 4px 0 var(--brown), inset 0 0 40px rgba(248,184,0,0.04);
+}
+
+.hero-name {
+  color: var(--gold);
+  font-size: 14px;
+  text-shadow: 2px 2px 0 var(--brown);
+  letter-spacing: 2px;
+}
+
+.hero-title {
+  color: var(--blue);
+  font-size: 8px;
+  margin-top: 6px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat .label {
+  color: var(--blue);
+  font-size: 7px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.hero-stat .value {
+  color: var(--gold);
+  font-size: 13px;
+}
+
+/* ── FILTERS ── */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--cardbg);
+  border: 2px solid var(--border);
+  color: var(--white);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: none;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--navy);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 2px 2px 0 var(--brown);
+}
+
+/* ── QUEST GRID ── */
+.quest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* ── QUEST CARD ── */
+.quest-card {
+  background: var(--cardbg);
+  border: 3px solid var(--border);
+  padding: 20px;
+  position: relative;
+  transition: border-color 0.1s;
+}
+
+.quest-card:hover {
+  border-color: var(--gold);
+  box-shadow: 4px 4px 0 var(--brown);
+}
+
+.quest-card.status-active   { border-left: 4px solid var(--green); }
+.quest-card.status-paused   { border-left: 4px solid var(--orange); }
+.quest-card.status-completed{ border-left: 4px solid var(--gold); }
+.quest-card.status-backlog  { border-left: 4px solid var(--border); }
+
+/* status badge */
+.status-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 7px;
+  padding: 4px 8px;
+  border: 1px solid currentColor;
+}
+.status-badge.active    { color: var(--green); }
+.status-badge.paused    { color: var(--orange); }
+.status-badge.completed { color: var(--gold); }
+.status-badge.backlog   { color: var(--border); }
+
+/* quest name */
+.quest-name {
+  font-size: 11px;
+  color: var(--white);
+  margin-bottom: 4px;
+  padding-right: 60px;
+  line-height: 1.6;
+}
+
+.quest-subtitle {
+  color: var(--blue);
+  font-size: 7px;
+  margin-bottom: 14px;
+}
+
+/* ── HEARTS ── */
+.hearts-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+.heart {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.heart.empty {
+  opacity: 0.2;
+}
+
+/* ── XP BAR ── */
+.xp-row {
+  margin-bottom: 14px;
+}
+
+.xp-label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gold);
+  font-size: 7px;
+  margin-bottom: 5px;
+}
+
+.xp-bar-bg {
+  background: var(--black);
+  border: 1px solid var(--border);
+  height: 10px;
+  width: 100%;
+}
+
+.xp-bar-fill {
+  background: var(--gold);
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+/* ── RUPEES ── */
+.rupees-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+.rupee-label {
+  color: var(--blue);
+  font-size: 7px;
+  margin-right: 6px;
+}
+
+.rupee {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.rupee.empty {
+  opacity: 0.2;
+}
+
+/* ── TRIFORCE ── */
+.triforce-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.triforce-piece {
+  flex: 1;
+  text-align: center;
+}
+
+.triforce-piece .tf-label {
+  font-size: 6px;
+  color: var(--blue);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.triforce-piece .tf-pips {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.tf-pip {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.tf-pip.empty {
+  background: var(--border);
+}
+
+/* ── NEXT STEP ── */
+.next-step {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.next-label {
+  color: var(--orange);
+  font-size: 7px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.next-text {
+  color: var(--white);
+  font-size: 8px;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+/* ── LEVEL BADGE ── */
+.level-badge {
+  display: inline-block;
+  background: var(--navy);
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  font-size: 7px;
+  padding: 3px 8px;
+  margin-bottom: 12px;
+}
+
+/* ── TAGS ── */
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tag {
+  background: var(--black);
+  border: 1px solid var(--border);
+  color: var(--border);
+  font-size: 6px;
+  padding: 3px 7px;
+}
+
+/* ── LAST UPDATED ── */
+.last-updated {
+  color: var(--border);
+  font-size: 6px;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* ── DIALOG MODAL ── */
+#dialog-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 100;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+#dialog-overlay.active {
+  display: flex;
+}
+
+.dialog-box {
+  width: min(680px, 90vw);
+  background: var(--darkbg);
+  border: 4px solid var(--gold);
+  box-shadow: 0 0 0 2px var(--brown), 6px 6px 0 var(--brown);
+  padding: 24px 28px 20px;
+  position: relative;
+  animation: dialog-appear 0.15s steps(4) forwards;
+}
+
+@keyframes dialog-appear {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+
+.dialog-name {
+  color: var(--gold);
+  font-size: 11px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  text-shadow: 2px 2px 0 var(--brown);
+}
+
+.dialog-body {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: var(--white);
+  line-height: 2.2;
+  white-space: pre-wrap;
+  min-height: 180px;
+}
+
+.dialog-cursor {
+  text-align: right;
+  color: var(--gold);
+  font-size: 10px;
+  visibility: hidden;
+  animation: blink 0.6s steps(1) infinite;
+  margin-top: 8px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--navy); border: 1px solid var(--border); }
