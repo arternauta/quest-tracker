@@ -156,6 +156,7 @@ body {
 .quest-card:hover {
   border-color: var(--gold);
   box-shadow: 4px 4px 0 var(--brown);
+  cursor: pointer;
 }
 
 .quest-card.status-active   { border-left: 4px solid var(--green); }

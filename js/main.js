@@ -1,3 +1,5 @@
+let typeInterval = null;
+
 const STATUS_LABELS = {
   active: 'ACTIVE',
   paused: 'PAUSED',
@@ -85,25 +87,25 @@ function openModal(q) {
 
   let i = 0;
   const speed = 18;
-  clearInterval(window._typeInterval);
-  window._typeInterval = setInterval(() => {
+  clearInterval(typeInterval);
+  typeInterval = setInterval(() => {
     bodyEl.textContent += fullText[i];
     i++;
     if (i >= fullText.length) {
-      clearInterval(window._typeInterval);
+      clearInterval(typeInterval);
       cursor.style.visibility = 'visible';
     }
   }, speed);
 }
 
 function closeModal() {
-  clearInterval(window._typeInterval);
+  clearInterval(typeInterval);
   document.getElementById('dialog-overlay').classList.remove('active');
 }
 
 function renderCard(q) {
   return `
-    <div class="quest-card status-${q.status}" data-category="${q.category}" data-status="${q.status}" data-id="${q.id}" style="cursor:pointer">
+    <div class="quest-card status-${q.status}" data-category="${q.category}" data-status="${q.status}" data-id="${q.id}">
       <span class="status-badge ${q.status}">${STATUS_LABELS[q.status]}</span>
 
       <div class="quest-name">${q.name}</div>
