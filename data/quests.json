@@ -7,26 +7,25 @@
   },
   "quests": [
     {
-      "id": "scrappy-doh",
-      "name": "Scrappy Doh",
-      "subtitle": "Instagram Comment Scraper",
-      "category": "code",
+      "id": "arternauta-content",
+      "name": "Arternauta",
+      "subtitle": "Blog de historias y recetas",
+      "category": "creative",
       "status": "active",
       "hearts": 4,
       "maxHearts": 5,
-      "level": 3,
-      "xp": 1200,
-      "rupees": 4,
-      "triforce": {
-        "power": 3,
-        "wisdom": 3,
-        "courage": 3
+      "level": 5,
+      "xp": 1800,
+      "stats": {
+        "momentum": 3,
+        "claridad": 3,
+        "avance": 2
       },
-      "description": "Scraper de comentarios de Instagram con análisis de sentimiento.",
-      "nextStep": "Exportar reportes en PDF",
-      "lastUpdated": "2026-05-29",
-      "gitRepo": "/Users/arternauta/01_ PROYECTOS/EL JOINT/Comment Scrapper",
-      "tags": ["python", "instagram", "el-joint"]
+      "description": "Blog de escritura personal: historias, recetas y video. Publicado en arternauta.wordpress.com.",
+      "nextStep": "Agregar imágenes de portada a los posts publicados",
+      "lastUpdated": "2026-05-31",
+      "gitRepo": "~/Projects/arternauta/content",
+      "tags": ["escritura", "blog", "creative"]
     },
     {
       "id": "sparrow",
@@ -38,61 +37,121 @@
       "maxHearts": 5,
       "level": 2,
       "xp": 800,
-      "rupees": 5,
-      "triforce": {
-        "power": 3,
-        "wisdom": 2,
-        "courage": 3
+      "stats": {
+        "momentum": 3,
+        "claridad": 3,
+        "avance": 2
       },
       "description": "App para aprobación de DMs de Meta. React + TypeScript + Dexie, sin backend.",
       "nextStep": "Completar V1 Compass",
-      "lastUpdated": "2026-05-29",
-      "gitRepo": null,
+      "lastUpdated": "2026-05-28",
+      "gitRepo": "~/Projects/el-joint/sparrow",
       "tags": ["react", "typescript", "meta", "el-joint"]
+    },
+    {
+      "id": "i-robot",
+      "name": "I Robot",
+      "subtitle": "Bot de contenido BYD",
+      "category": "code",
+      "status": "active",
+      "hearts": 3,
+      "maxHearts": 5,
+      "level": 2,
+      "xp": 600,
+      "stats": {
+        "momentum": 2,
+        "claridad": 3,
+        "avance": 2
+      },
+      "description": "Automatización de publicación de contenido BYD en redes sociales vía Metricool API.",
+      "nextStep": "Integrar Google Drive para obtener links de media",
+      "lastUpdated": "2026-05-31",
+      "gitRepo": "~/Projects/el-joint/i-robot",
+      "tags": ["python", "byd", "metricool", "el-joint"]
+    },
+    {
+      "id": "clamp",
+      "name": "Clamp",
+      "subtitle": "Referencias audiovisuales",
+      "category": "code",
+      "status": "active",
+      "hearts": 4,
+      "maxHearts": 5,
+      "level": 3,
+      "xp": 1100,
+      "stats": {
+        "momentum": 2,
+        "claridad": 3,
+        "avance": 3
+      },
+      "description": "App de escritorio (Electron) para organizar referencias visuales, storyboard y notas técnicas por proyecto audiovisual.",
+      "nextStep": "Completar V1 Sebastian",
+      "lastUpdated": "2026-05-28",
+      "gitRepo": "~/Projects/el-joint/clamp",
+      "tags": ["electron", "react", "typescript", "personal"]
+    },
+    {
+      "id": "scrappy-doh",
+      "name": "Scrappy Doh",
+      "subtitle": "Instagram Comment Scraper",
+      "category": "code",
+      "status": "active",
+      "hearts": 4,
+      "maxHearts": 5,
+      "level": 3,
+      "xp": 1200,
+      "stats": {
+        "momentum": 2,
+        "claridad": 2,
+        "avance": 3
+      },
+      "description": "Scraper de comentarios de Instagram con Playwright. Exporta a CSV/JSON.",
+      "nextStep": "Exportar reportes en PDF",
+      "lastUpdated": "2026-05-31",
+      "gitRepo": "~/Projects/el-joint/scrappy-doh",
+      "tags": ["python", "instagram", "el-joint"]
+    },
+    {
+      "id": "videodb",
+      "name": "videodb",
+      "subtitle": "Indexador de biblioteca de video",
+      "category": "tool",
+      "status": "active",
+      "hearts": 4,
+      "maxHearts": 5,
+      "level": 3,
+      "xp": 950,
+      "stats": {
+        "momentum": 1,
+        "claridad": 3,
+        "avance": 3
+      },
+      "description": "Sistema para indexar, describir con IA y navegar miles de videos en disco externo. Integra con DaVinci Resolve.",
+      "nextStep": "Correr scan en disco externo",
+      "lastUpdated": "2026-05-12",
+      "gitRepo": "~/Projects/tools/videodb",
+      "tags": ["python", "sqlite", "video", "personal"]
     },
     {
       "id": "quest-tracker",
       "name": "Quest Tracker",
       "subtitle": "Project RPG Dashboard",
-      "category": "code",
+      "category": "tool",
       "status": "active",
       "hearts": 5,
       "maxHearts": 5,
       "level": 1,
-      "xp": 100,
-      "rupees": 3,
-      "triforce": {
-        "power": 2,
-        "wisdom": 3,
-        "courage": 3
+      "xp": 200,
+      "stats": {
+        "momentum": 3,
+        "claridad": 3,
+        "avance": 2
       },
-      "description": "App pixel art estilo Zelda NES para trackear proyectos con stats de videojuego.",
-      "nextStep": "Aprobar UI y cargar datos reales",
-      "lastUpdated": "2026-05-29",
-      "gitRepo": null,
+      "description": "Dashboard pixel art estilo Zelda NES para trackear proyectos con stats de videojuego.",
+      "nextStep": "Actualizar UI con nuevo modelo de stats",
+      "lastUpdated": "2026-05-31",
+      "gitRepo": "~/Projects/tools/quest-tracker",
       "tags": ["html", "css", "js", "personal"]
-    },
-    {
-      "id": "presentaciones-js",
-      "name": "Presentaciones JS",
-      "subtitle": "Cool Slides with HTML/JS",
-      "category": "code",
-      "status": "backlog",
-      "hearts": 4,
-      "maxHearts": 5,
-      "level": 1,
-      "xp": 0,
-      "rupees": 3,
-      "triforce": {
-        "power": 2,
-        "wisdom": 1,
-        "courage": 1
-      },
-      "description": "Herramienta de presentaciones interactivas con librerías JS. Pendiente para junio 2026.",
-      "nextStep": "Definir brief y elegir librería (Reveal.js, Impress.js, GSAP)",
-      "lastUpdated": "2026-05-29",
-      "gitRepo": null,
-      "tags": ["html", "js", "personal"]
     },
     {
       "id": "el-joint-ops",
@@ -104,17 +163,37 @@
       "maxHearts": 5,
       "level": 4,
       "xp": 1100,
-      "rupees": 5,
-      "triforce": {
-        "power": 3,
-        "wisdom": 3,
-        "courage": 2
+      "stats": {
+        "momentum": 3,
+        "claridad": 2,
+        "avance": 2
       },
       "description": "Operación general de la agencia: clientes, campañas, entregas.",
-      "nextStep": "—",
-      "lastUpdated": "2026-05-29",
+      "nextStep": "Definir próximas entregas BYD",
+      "lastUpdated": "2026-05-31",
       "gitRepo": null,
       "tags": ["el-joint", "agencia", "trabajo"]
+    },
+    {
+      "id": "presentaciones-js",
+      "name": "Presentaciones JS",
+      "subtitle": "Cool Slides con HTML/JS",
+      "category": "code",
+      "status": "backlog",
+      "hearts": 2,
+      "maxHearts": 5,
+      "level": 1,
+      "xp": 0,
+      "stats": {
+        "momentum": 1,
+        "claridad": 1,
+        "avance": 1
+      },
+      "description": "Herramienta de presentaciones interactivas con librerías JS.",
+      "nextStep": "Definir brief y elegir librería (Reveal.js, Impress.js, GSAP)",
+      "lastUpdated": "2026-05-29",
+      "gitRepo": null,
+      "tags": ["html", "js", "personal"]
     }
   ]
 }

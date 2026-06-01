@@ -9,6 +9,13 @@ const STATUS_LABELS = {
 
 const XP_PER_LEVEL = 500;
 
+const CATEGORY_META = {
+  code:     { icon: '⌨',  label: 'CODE',     color: '#00a800' },
+  creative: { icon: '✦',  label: 'CREATIVE', color: '#f8b800' },
+  tool:     { icon: '⚙',  label: 'TOOL',     color: '#3cbcfc' },
+  work:     { icon: '◈',  label: 'WORK',     color: '#fc7460' }
+};
+
 function hearts(filled, max) {
   let html = '';
   for (let i = 0; i < max; i++) {
@@ -17,25 +24,17 @@ function hearts(filled, max) {
   return html;
 }
 
-function rupees(filled, max = 5) {
-  let html = `<span class="rupee-label">💎</span>`;
-  for (let i = 0; i < max; i++) {
-    html += `<span class="rupee${i < filled ? '' : ' empty'}">◆</span>`;
-  }
-  return html;
-}
-
-function triforce(tf) {
+function stats(s) {
   const pieces = [
-    { key: 'power',   label: 'POWER' },
-    { key: 'wisdom',  label: 'WISDOM' },
-    { key: 'courage', label: 'COURAGE' }
+    { key: 'momentum', label: 'MOMENTUM', icon: '⚡' },
+    { key: 'claridad',  label: 'CLARIDAD',  icon: '🎯' },
+    { key: 'avance',   label: 'AVANCE',   icon: '📈' }
   ];
-  return pieces.map(({ key, label }) => `
+  return pieces.map(({ key, label, icon }) => `
     <div class="triforce-piece">
-      <span class="tf-label">${label}</span>
+      <span class="tf-label">${icon} ${label}</span>
       <div class="tf-pips">
-        ${[1,2,3].map(i => `<div class="tf-pip${i <= tf[key] ? '' : ' empty'}"></div>`).join('')}
+        ${[1,2,3].map(i => `<div class="tf-pip${i <= s[key] ? '' : ' empty'}"></div>`).join('')}
       </div>
     </div>
   `).join('');
@@ -71,11 +70,10 @@ function openModal(q) {
     `LEVEL    : ${q.level}`,
     `XP       : ${q.xp} pts`,
     `HEARTS   : ${'❤'.repeat(q.hearts)}${'♡'.repeat(q.maxHearts - q.hearts)}`,
-    `RUPEES   : ${'◆'.repeat(q.rupees)}${'◇'.repeat(5 - q.rupees)}`,
     ``,
-    `POWER    : ${'▲'.repeat(q.triforce.power)}${'△'.repeat(3 - q.triforce.power)}`,
-    `WISDOM   : ${'▲'.repeat(q.triforce.wisdom)}${'△'.repeat(3 - q.triforce.wisdom)}`,
-    `COURAGE  : ${'▲'.repeat(q.triforce.courage)}${'△'.repeat(3 - q.triforce.courage)}`,
+    `⚡ MOMENTUM : ${'▲'.repeat(q.stats.momentum)}${'△'.repeat(3 - q.stats.momentum)}`,
+    `🎯 CLARIDAD  : ${'▲'.repeat(q.stats.claridad)}${'△'.repeat(3 - q.stats.claridad)}`,
+    `📈 AVANCE    : ${'▲'.repeat(q.stats.avance)}${'△'.repeat(3 - q.stats.avance)}`,
     ``,
     `▶ NEXT   : ${q.nextStep}`,
   ].join('\n');
@@ -103,34 +101,34 @@ function closeModal() {
   document.getElementById('dialog-overlay').classList.remove('active');
 }
 
-function renderCard(q) {
+function renderCard(q, index = 0) {
+  const cat = CATEGORY_META[q.category] || CATEGORY_META.work;
   return `
-    <div class="quest-card status-${q.status}" data-category="${q.category}" data-status="${q.status}" data-id="${q.id}">
-      <span class="status-badge ${q.status}">${STATUS_LABELS[q.status]}</span>
+    <div class="quest-card status-${q.status}"
+         data-category="${q.category}"
+         data-status="${q.status}"
+         data-id="${q.id}"
+         style="--i:${index}; --cat-color:${cat.color}">
+
+      <div class="card-header">
+        <span class="category-badge" style="color:${cat.color}; border-color:${cat.color}">
+          ${cat.icon} ${cat.label}
+        </span>
+        <span class="status-badge ${q.status}">${STATUS_LABELS[q.status]}</span>
+      </div>
 
       <div class="quest-name">${q.name}</div>
       <div class="quest-subtitle">${q.subtitle}</div>
 
-      <div class="level-badge">LVL ${q.level}</div>
-
-      <div class="hearts-row">${hearts(q.hearts, q.maxHearts)}</div>
-
-      ${xpBar(q.xp)}
-
-      <div class="rupees-row">${rupees(q.rupees)}</div>
-
-      <div class="triforce-row">${triforce(q.triforce)}</div>
+      <div class="card-bottom">
+        <div class="hearts-row">${hearts(q.hearts, q.maxHearts)}</div>
+        <div class="level-badge">LVL ${q.level}</div>
+      </div>
 
       <div class="next-step">
         <span class="next-label">▶ NEXT STEP</span>
         <span class="next-text">${q.nextStep}</span>
       </div>
-
-      <div class="tags-row">
-        ${q.tags.map(t => `<span class="tag">#${t}</span>`).join('')}
-      </div>
-
-      <div class="last-updated">updated ${q.lastUpdated}</div>
     </div>
   `;
 }
@@ -161,7 +159,7 @@ async function init() {
 
   function render() {
     const filtered = applyFilter(data.quests, currentFilter);
-    grid.innerHTML = filtered.map(renderCard).join('');
+    grid.innerHTML = filtered.map((q, i) => renderCard(q, i)).join('');
     grid.querySelectorAll('.quest-card').forEach(card => {
       card.addEventListener('click', () => {
         const quest = data.quests.find(q => q.id === card.dataset.id);
